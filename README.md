@@ -4,4 +4,4 @@ A selection of banners in pure HTML5 and CSS3, all built specifically for iOS (i
 
 [Live Demo](http://andretc.com/demos/banners/)
 
-Each banner is included in the index page as an iframe. Source code for each banner inside the `banners` folder.
+Each banner included in `\index.html` as an iframe. Source code for each banner inside the `\banners` folder.
