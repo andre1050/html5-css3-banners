@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+    
+      /****************** SHARED STYLES **********************/
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background: #FFF;
+      }
+      
+      body div {
+        position: absolute;
+      }
+      
+      #portrait,
+      #landscape {
+        position: relative;
+        background: #FFF;
+        overflow: hidden;
+      }
+      
+      @media screen and (min-width: 0px) and (max-width:320px){
+        #portrait { display: block; }
+        #landscape { display: none; }
+      }
+
+      @media screen and (min-width: 321px) and (max-width:480px) {
+        #landscape { display: block; }
+        #portrait { display: none; }
+      }
+      
+      /*********************** PORTRAIT *********************/
+      #portrait {
+        width: 320px;
+        height: 50px;
+        background: url('images/pt-bg.jpg') no-repeat;
+        background-size: 320px 50px;
+      }
+      
+      #portrait .page {
+        background: url('images/pt-sprite1.png') no-repeat;
+        background-size: 320px 800px;
+        width: 320px;
+        height: 160px;
+        position: absolute;
+        top: -55px;
+        left: 0;
+      }
+      
+      #portrait .frame-01 {
+        z-index: 5;
+        background-position: 0px -320px;
+        -webkit-animation: "pt-frame-01" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-02 {
+        z-index: 4;
+        background-position: 0px 0px;
+        -webkit-animation: "pt-frame-02" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-03 {
+        z-index: 5;
+        background-position: 0px -160px;
+        -webkit-animation: "pt-frame-03" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-04 {
+        z-index: 6;
+        background-position: 0px -480px;
+        -webkit-animation: "pt-frame-04" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-05 {
+        z-index: 7;
+        background-position: 0px -640px;
+        -webkit-animation: "pt-frame-05" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      @-webkit-keyframes "pt-frame-01" {
+  			0% {
+  			  top: 180px;
+  			}
+  			20.00% {
+  			  top: 180px;
+  			}
+  			26.66% {
+  			  top: -55px;
+  			}
+  			93.22% {
+  			  top: -55px;
+  			}
+  			99.99% {
+  			  top: 180px;
+  			}
+  			100% {
+  			  top: 180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "pt-frame-02" {
+  			0% {
+  			  top: -180px;
+  			}
+  			26.66% {
+  			  top: -180px;
+  			}
+  			33.22% {
+  			  top: -55px;
+  			}
+  			93.22% {
+  			  top: -55px;
+  			}
+  			99.99% {
+  			  top: -180px;
+  			}
+  			100% {
+  			  top: -180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "pt-frame-03" {
+  			0% {
+  			  top: 180px;
+  			}
+  			33.22% {
+  			  top: 180px;
+  			}
+  			40.22% {
+  			  top: -55px;
+  			}
+  			93.22% {
+  			  top: -55px;
+  			}
+  			99.99% {
+  			  top: 180px;
+  			}
+  			100% {
+  			  top: 180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "pt-frame-04" {
+  			0% {
+  			  top: -180px;
+  			}
+  			40.22% {
+  			  top: -180px;
+  			}
+  			46.66% {
+  			  top: -55px;
+  			}
+  			93.22% {
+  			  top: -55px;
+  			}
+  			99.99% {
+  			  top: -180px;
+  			}
+  			100% {
+  			  top: -180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "pt-frame-05" {
+  			0% {
+  			  top: -55px;
+  			  left: 100px;
+  			}
+  			46.66% {
+  			  top: -55px;
+  			  left: 100px;
+  			}
+  			53.22% {
+  			  top: -55px;
+  			  left: 0px;
+  			}
+  			93.22% {
+  			  top: -55px;
+  			  left: 0px;
+  			}
+  			99.99% {
+  			  top: -55px;
+  			  left: 100px;
+  			}
+  			100% {
+  			  top: -55px;
+  			  left: 100px;
+  			}
+  		}
+      
+      /*********************** LANDSCAPE *********************/
+      #landscape {
+        width: 480px;
+        height: 32px;
+        background: url('images/ls-bg.jpg') no-repeat;
+        background-size: 480px 32px;
+      }
+      
+      #landscape .page {
+        background: url('images/ls-sprite1.png') no-repeat;
+        background-size: 480px 800px;
+        width: 480px;
+        height: 160px;
+        position: absolute;
+        top: -64px;
+        left: 0;
+      }
+      
+      #landscape .frame-01 {
+        z-index: 5;
+        background-position: 0px -320px;
+        -webkit-animation: "ls-frame-01" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-02 {
+        z-index: 4;
+        background-position: 0px 0px;
+        -webkit-animation: "ls-frame-02" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-03 {
+        z-index: 5;
+        background-position: 0px -160px;
+        -webkit-animation: "ls-frame-03" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-04 {
+        z-index: 6;
+        background-position: 0px -480px;
+        -webkit-animation: "ls-frame-04" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-05 {
+        z-index: 7;
+        background-position: 0px -640px;
+        -webkit-animation: "ls-frame-05" 5s 0s infinite ease-in-out normal forwards;
+      }
+      
+      @-webkit-keyframes "ls-frame-01" {
+  			0% {
+  			  top: 180px;
+  			}
+  			20.00% {
+  			  top: 180px;
+  			}
+  			26.66% {
+  			  top: -64px;
+  			}
+  			93.22% {
+  			  top: -64px;
+  			}
+  			99.99% {
+  			  top: 180px;
+  			}
+  			100% {
+  			  top: 180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "ls-frame-02" {
+  			0% {
+  			  top: -180px;
+  			}
+  			26.66% {
+  			  top: -180px;
+  			}
+  			33.22% {
+  			  top: -64px;
+  			}
+  			93.22% {
+  			  top: -64px;
+  			}
+  			99.99% {
+  			  top: -180px;
+  			}
+  			100% {
+  			  top: -180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "ls-frame-03" {
+  			0% {
+  			  top: 180px;
+  			}
+  			33.22% {
+  			  top: 180px;
+  			}
+  			40.22% {
+  			  top: -64px;
+  			}
+  			93.22% {
+  			  top: -64px;
+  			}
+  			99.99% {
+  			  top: 180px;
+  			}
+  			100% {
+  			  top: 180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "ls-frame-04" {
+  			0% {
+  			  top: -180px;
+  			}
+  			40.22% {
+  			  top: -180px;
+  			}
+  			46.66% {
+  			  top: -64px;
+  			}
+  			93.22% {
+  			  top: -64px;
+  			}
+  			99.99% {
+  			  top: -180px;
+  			}
+  			100% {
+  			  top: -180px;
+  			}
+  		}
+  		
+  		@-webkit-keyframes "ls-frame-05" {
+  			0% {
+  			  top: -64px;
+  			  left: 160px;
+  			}
+  			46.66% {
+  			  top: -64px;
+  			  left: 160px;
+  			}
+  			53.22% {
+  			  top: -64px;
+  			  left: 0px;
+  			}
+  			93.22% {
+  			  top: -64px;
+  			  left: 0px;
+  			}
+  			99.99% {
+  			  top: -64px;
+  			  left: 160px;
+  			}
+  			100% {
+  			  top: -64px;
+  			  left: 160px;
+  			}
+  		}
+      
+    </style>
+  </head>
+  <body>
+    <div id="portrait">
+      <div class="page sprite frame-01"></div>
+      <div class="page sprite frame-02"></div>
+      <div class="page sprite frame-03"></div>
+      <div class="page sprite frame-04"></div>
+      <div class="page sprite frame-05"></div>
+    </div>
+    <div id="landscape">
+      <div class="page sprite frame-01"></div>
+      <div class="page sprite frame-02"></div>
+      <div class="page sprite frame-03"></div>
+      <div class="page sprite frame-04"></div>
+      <div class="page sprite frame-05"></div>
+    </div>
+  </body>
+</html>

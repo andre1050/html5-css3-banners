@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+
+      /* SHARED ------------------------------------------------------------------------ */
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top:0px;
+        left: 0px;
+        background: #000;
+        font:16px/18px "Helvetica";
+        text-align:center;
+      }
+
+      body div{
+        position: absolute;
+        background-size: 100% 100%;
+      }
+
+      #portrait,
+      #landscape,
+      #landscape-iphone-5 {
+        position: relative;
+        background-color: #FFF;
+        overflow: hidden;
+      }
+
+      .logo, 
+      .product,
+      .copy {
+        position: absolute;
+        top: 0;
+      }
+
+      /* Screen Rotation
+      ------------------------------------------------------------------------------*/
+      @media screen and (min-width: 0px) and (max-width: 320px) {
+        #portrait           { display: block; }
+        #landscape          { display: none; }
+        #landscape-iphone-5 { display: none; }
+      }
+      @media screen and (min-width: 321px) and (max-width: 480px) {
+        #portrait           { display: none; }
+        #landscape          { display: block; }
+        #landscape-iphone-5 { display: none; }
+      }
+      @media screen and (min-width: 481px) and (max-width: 568px) {
+        #portrait           { display: none; }
+        #landscape-iphone-5 { display: block; }
+        #landscape          { display: none; }
+      }
+
+      /* PORTRAIT ---------------------------------------------------------------------- */
+      #portrait {
+        width: 320px;
+        height: 50px;
+        background-image: url("img/pt-bg.png");
+        background-size: 320px 50px;
+      }
+
+      #portrait .logo {
+        width: 60px;
+        height: 50px;
+        left: -60px;
+        -webkit-animation: "pt-slide-left" 7s linear 0s forwards infinite;
+      }
+
+      #portrait .product {
+        width: 80px;
+        height: 50px;
+        right: -60px;
+        -webkit-animation: "ls-slide-right" 7s linear 0s forwards infinite;
+      }
+
+      #portrait .copy {
+        width: 320px;
+        height: 50px;
+        top: -50px;
+        background-image: url("img/pt-copy.png");
+        background-size: 320px 100px;
+      }
+
+      #portrait .line1 {
+        background-position: left top;
+        -webkit-animation: "pt-slide-line1" 7s linear 0s forwards infinite;
+      }
+
+      #portrait .line2 {
+        background-position: left bottom;
+        -webkit-animation: "pt-slide-line2" 7s linear 0s forwards infinite;
+      }
+
+      @-webkit-keyframes pt-slide-left {
+        0%   { -webkit-transform: translateX(0); }
+        10%   { -webkit-transform: translateX(60px); }
+        99.99% { -webkit-transform: translateX(60px); }
+        100% { -webkit-transform: translateX(0); }
+      }
+
+      @-webkit-keyframes pt-slide-right {
+        0%   { -webkit-transform: translateX(0); }
+        10%   { -webkit-transform: translateX(-80px); }
+        99.99% { -webkit-transform: translateX(-80px); }
+        100% { -webkit-transform: translateX(0); }
+      }
+
+      @-webkit-keyframes pt-slide-line1 {
+        0%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        15%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        20%   { -webkit-transform: translateY(50px); opacity: 0.9999; }
+        56% { -webkit-transform: translateY(50px); opacity: 0.9999; }
+        60% { -webkit-transform: translateY(50px); opacity: 0.0001; }
+        100% { -webkit-transform: translateY(0); opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes pt-slide-line2 {
+        0%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        60%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        65% { -webkit-transform: translateY(50px); opacity: 0.9999; }
+        99.99% { -webkit-transform: translateY(50px); opacity: 0.9999; }
+        100% { -webkit-transform: translateY(0); opacity: 0.0001; }
+      }
+
+      /* LANDSCAPE --------------------------------------------------------------------- */
+      #landscape,
+      #landscape-iphone-5 {
+        height: 32px;
+        background-image: url("img/ls-bg.png");
+        background-size: 568px 32px;
+      }
+
+      #landscape { width: 480px;  }
+      #landscape-iphone-5 { width: 568px;  }
+
+      #landscape .logo,
+      #landscape-iphone-5 .logo {
+        width: 45px;
+        height: 32px;
+        left: -45px;
+        -webkit-animation: "ls-slide-left" 7s linear 0s forwards infinite;
+      }
+
+      #landscape .product,
+      #landscape-iphone-5 .product  {
+        width: 60px;
+        height: 32px;
+        right: -60px;
+        -webkit-animation: "ls-slide-right" 7s linear 0s forwards infinite;
+      }
+      
+      #landscape .copy,
+      #landscape-iphone-5 .copy {
+        width: 568px;
+        height: 32px;
+        top: -32px;
+        background-image: url("img/ls-copy.png");
+        background-size: 568px 64px;
+      }
+      #landscape .copy { left: -44px; }
+      
+      #landscape .line1,
+      #landscape-iphone-5 .line1 {
+        background-position: left top;
+        -webkit-animation: "ls-slide-line1" 7s linear 0s forwards infinite;
+      }
+
+      #landscape .line2,
+      #landscape-iphone-5 .line2 {
+        background-position: left bottom;
+        -webkit-animation: "ls-slide-line2" 7s linear 0s forwards infinite;
+      }
+
+      @-webkit-keyframes ls-slide-left {
+        0%   { -webkit-transform: translateX(0); }
+        10%   { -webkit-transform: translateX(45px); }
+        99.99% { -webkit-transform: translateX(45px); }
+        100% { -webkit-transform: translateX(0); }
+      }
+
+      @-webkit-keyframes ls-slide-right {
+        0%   { -webkit-transform: translateX(0); }
+        10%   { -webkit-transform: translateX(-60px); }
+        99.99% { -webkit-transform: translateX(-60px); }
+        100% { -webkit-transform: translateX(0); }
+      }
+
+      @-webkit-keyframes ls-slide-line1 {
+        0%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        15%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        20%   { -webkit-transform: translateY(32px); opacity: 0.9999; }
+        56% { -webkit-transform: translateY(32px); opacity: 0.9999; }
+        60% { -webkit-transform: translateY(32px); opacity: 0.0001; }
+        100% { -webkit-transform: translateY(0); opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes ls-slide-line2 {
+        0%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        60%   { -webkit-transform: translateY(0); opacity: 0.9999; }
+        65% { -webkit-transform: translateY(32px); opacity: 0.9999; }
+        99.99% { -webkit-transform: translateY(32px); opacity: 0.9999; }
+        100% { -webkit-transform: translateY(0); opacity: 0.0001; }
+      }
+
+      /* SHARED ANIMATIONS --------------------------------------------------------------------- */
+
+      
+
+    </style>
+  </head>
+  <body>
+    <div id="portrait">
+      <img src="img/pt-logo.png" class="logo" />
+      <div class="copy line1"></div>
+      <div class="copy line2"></div>
+      <img src="img/pt-product.png" class="product" />
+    </div>
+    <div id="landscape">
+      <img src="img/ls-logo.png" class="logo" />
+      <div class="copy line1"></div>
+      <div class="copy line2"></div>
+      <img src="img/pt-product.png" class="product" />
+    </div>
+    <div id="landscape-iphone-5">
+      <img src="img/ls-logo.png" class="logo" />
+      <div class="copy line1"></div>
+      <div class="copy line2"></div>
+      <img src="img/pt-product.png" class="product" />
+    </div>
+  </body>
+</html>

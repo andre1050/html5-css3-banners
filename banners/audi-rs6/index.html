@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+
+      /* SHARED STYLES ------------------------------------------------------------------------ */
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top:0px;
+        left: 0px;
+        background: #000;
+        font:20px/22px "Helvetica";
+        text-align:center;
+      }
+
+      body div {
+        position: absolute;
+        background-size: 100% 100%;
+      }
+
+      body img {
+        position: absolute;
+      }
+
+      #banner {
+      	width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-color: #FFF;
+        background-image: url(bg@2x.jpg);
+        background-position: 0 10px;
+        background-size: 300px 250px;
+        background-repeat: no-repeat;
+      }
+
+      .audi-logo {
+        right: 0;
+        -webkit-animation: "audi-logo" 6s ease infinite;
+      }
+
+      .rs-logo {
+        left: 0;
+        -webkit-animation: "rs-logo" 6s ease infinite;
+      }
+
+      .sprite-copy {
+        width: 190px;
+        height: 60px;
+        background-image: url(shared-sprite-copy@2x.png);
+        background-size: 190px 120px;
+        /*top: 50px;*/
+        top: 100px;
+        /*left: 40px;*/
+        left: -190px;
+      }
+
+      .sprite-copy.copy1 { 
+        -webkit-animation: "copy1" 6s ease infinite;
+        background-position: 0 0; 
+      }
+      .sprite-copy.copy2 { 
+        -webkit-animation: "copy2" 6s ease infinite;
+        background-position: 0 -60px; 
+      }
+
+      .sprite-cta {
+        width: 155px;
+        height: 62px;
+        background-image: url(shared-sprite-cta@2x.png);
+        background-size: 155px 186px;
+        /*top: 45px;*/
+        top: 95px;
+        /*left: 0;*/
+        left: -205px;
+      }
+
+      .sprite-cta.cta1 { 
+        background-position: 0 0; 
+        -webkit-animation: "cta1" 6s ease infinite;
+      }
+      .sprite-cta.cta2 { 
+        background-position: 0 -62px; 
+        -webkit-animation: "cta2" 6s ease infinite;
+      }
+      .sprite-cta.cta3 { 
+        background-position: 0 -124px; 
+        -webkit-animation: "cta3" 6s ease infinite;
+      }
+
+      .car-animation {
+        width: 300px;
+        height: 250px;
+      }
+
+      /* ANIMATIONS ---------------------------------------------------------------------- */
+      @-webkit-keyframes audi-logo {
+        0% { opacity: 0.0001; }
+        30% { opacity: 0.0001; }
+        36% { opacity: 0.9999; }
+        94% { opacity: 0.9999; }
+        100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes rs-logo {
+        0% {
+          opacity: 0.9999;
+          -webkit-transform: translateX(-60px);
+        }
+        6% {
+          -webkit-transform: translateX(0px);
+        }
+        94% { 
+          opacity: 0.9999;
+          -webkit-transform: translateX(0px); 
+        }
+        100% { 
+          opacity: 0.0001;
+          -webkit-transform: translateX(0px);  
+        }
+      }
+
+      @-webkit-keyframes copy1 {
+        0%   { -webkit-transform: translate(0, 0); }
+        36%  { -webkit-transform: translate(0, 0); }
+        42%  { -webkit-transform: translate(230px, -50px); }
+        60%  { -webkit-transform: translate(230px, -50px); }
+        66%  { -webkit-transform: translate(600px, -150px); }
+        100% { -webkit-transform: translate(600px, -150px); }
+      }
+
+      @-webkit-keyframes copy2 {
+        0%   { -webkit-transform: translate(0, 0); }
+        42%  { -webkit-transform: translate(0, 0); }
+        48%  { -webkit-transform: translate(230px, -50px); }
+        60%  { -webkit-transform: translate(230px, -50px); }
+        66%  { -webkit-transform: translate(600px, -150px); }
+        100% { -webkit-transform: translate(600px, -150px); }
+      }
+
+      @-webkit-keyframes cta1 {
+        0%   { -webkit-transform: translate(0, 0); }
+        60%  { -webkit-transform: translate(0, 0); }
+        66%  { -webkit-transform: translate(205px, -50px); }
+        84%  { -webkit-transform: translate(205px, -50px); }
+        90%  { -webkit-transform: translate(600px, -165px); }
+        100% { -webkit-transform: translate(600px, -165px); }
+      }
+
+      @-webkit-keyframes cta2 {
+        0%   { -webkit-transform: translate(0, 0); }
+        61%  { -webkit-transform: translate(0, 0); }
+        67%  { -webkit-transform: translate(205px, -50px); }
+        84%  { -webkit-transform: translate(205px, -50px); }
+        90%  { -webkit-transform: translate(600px, -165px); }
+        100% { -webkit-transform: translate(600px, -165px); }
+      }
+
+      @-webkit-keyframes cta3 {
+        0%   { -webkit-transform: translate(0, 0); }
+        62%  { -webkit-transform: translate(0, 0); }
+        68%  { -webkit-transform: translate(205px, -50px); }
+        84%  { -webkit-transform: translate(205px, -50px); }
+        90%  { -webkit-transform: translate(600px, -165px); }
+        100% { -webkit-transform: translate(600px, -165px); }
+      }
+
+      /*** CAR ANIMATION ---------------------------------------------------------------------- ***/
+      .car-animation img {
+        opacity: 0;
+        -webkit-transform-origin: center center;
+      }
+
+      /*** FRAME 2 ***/
+      .car-animation .frame2 {
+        top: 130px;
+        left: 100px;
+        -webkit-animation: "frame1-to-frame2" 6s ease infinite;
+      }
+
+      @-webkit-keyframes frame1-to-frame2 {
+        0%   { 
+          opacity: 0.9999;
+          -webkit-transform: scale(0.5); 
+        }
+        12%  { 
+          -webkit-transform: scale(1);
+        }
+        16%  { 
+          opacity: 0.9999;
+        }
+        17%  { 
+          opacity: 0.5;
+        }
+        18%  { 
+          opacity: 0.9999;
+        }
+        19%  { 
+          opacity: 0.5;
+        }
+        20%  { 
+          opacity: 0.9999;
+        }
+        21%  { 
+          opacity: 0.5;
+        }
+        22%  { 
+          opacity: 0.9999;
+        }
+        23%  { 
+          opacity: 0.5;
+        }
+        24%  { 
+          opacity: 0.0001;
+        }
+        100% { 
+          opacity: 0.0001;
+        }
+      }
+
+      /*** FRAME 3 ***/
+      .car-animation .sunflare {
+        top: 100px;
+        left: 105px;
+        -webkit-animation: "sunflare" 6s ease infinite;
+      }
+
+      @-webkit-keyframes sunflare {
+        0%   { opacity: 0.0001; }
+        16%  { opacity: 0.0001; }
+        18%  { opacity: 0.9999; }
+        20%  { opacity: 0.9999; }
+        22%  { opacity: 0.0001; }
+        100% { opacity: 0.0001; }
+      }
+
+      /*** FRAME 4 ***/
+      .car-animation .frame4 {
+        top: 90px;
+        left: 70px;
+        -webkit-animation: "frame3-to-frame4" 6s ease infinite;
+      }
+
+      @-webkit-keyframes frame3-to-frame4 {
+        0%   { 
+          opacity: 0.0001;
+          -webkit-transform: scale(0.5); 
+        }
+        16%  { 
+          opacity: 0.0001;
+        }
+        17%  { 
+          opacity: 0.5;
+        }
+        18%  { 
+          opacity: 0.9999;
+        }
+        19%  { 
+          opacity: 0.5;
+        }
+        20%  { 
+          opacity: 0.9999;
+        }
+        21%  { 
+          opacity: 0.5;
+        }
+        21%  { 
+          opacity: 0.9999;
+        }
+        22%  { 
+          opacity: 0.5;
+        }
+        24%  { 
+          opacity: 0.9999;
+          -webkit-transform: scale(0.5);
+        }
+        30%  { 
+          opacity: 0.9999;
+          -webkit-transform: scale(1); 
+        }
+        92%  { 
+          opacity: 0.9999;
+          -webkit-transform: scale(1); 
+        }
+        100% { 
+          opacity: 0.0001;
+          -webkit-transform: scale(3);
+        }
+      }
+
+      /*** RED STRIPE ***/
+      .car-animation .stripe {
+        opacity: 1;
+        top: 55px;
+        /*left: 50px;*/
+        left: -220px;
+        -webkit-animation: "stripe" 6s ease infinite;
+      }
+      
+      @-webkit-keyframes stripe {
+        0%   { -webkit-transform: translateX(0); }
+        30%  { -webkit-transform: translateX(0); }
+        36%  { -webkit-transform: translateX(270px); }
+        94%  { -webkit-transform: translateX(270px); }
+        100% { -webkit-transform: translateX(1000px); }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="banner">
+      
+      <img src="shared-audi-logo@2x.png" class="audi-logo" width="130" height="30" />
+      <img src="shared-rs-logo@2x.png" class="rs-logo" width="60" height="30" />
+
+      <div class="car-animation">
+        <img src="shared-car-frame2@2x.png" class="frame2" width="115" height="65" />
+        <img src="shared-stripe-frame5@2x.png" class="stripe" width="220" height="175" />
+        <img src="shared-car-frame4@2x.png" class="frame4" width="210" height="150" />
+        <img src="shared-sunflare@2x.png" class="sunflare" width="120" height="110" />
+      </div>
+
+      <div class="sprite-copy copy1"></div>
+      <div class="sprite-copy copy2"></div>
+
+      <div class="sprite-cta cta1"></div>
+      <div class="sprite-cta cta2"></div>
+      <div class="sprite-cta cta3"></div>
+
+    </div>
+  </body>
+</html>

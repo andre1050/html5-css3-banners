@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+      
+      /****************** SHARED STYLES **********************/
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background: #FFF;
+      }
+
+      body div {
+        position: absolute;
+      }
+      
+      #portrait,
+      #landscape {
+        position: relative;
+        background: #FFF;
+        overflow: hidden;
+      }
+      
+      @media screen and (min-width: 0px) and (max-width:320px){
+        #portrait { display: block; }
+        #landscape { display: none; }
+      }
+      
+      @media screen and (min-width: 321px) and (max-width:480px) {
+        #landscape { display: block; }
+        #portrait { display: none; }
+      }
+      
+      /*********************** PORTRAIT *********************/
+      #portrait {
+        width: 320px;
+        height: 50px;
+        background: url('images/pt-bg.jpg') no-repeat;
+        background-size: 320px 50px;
+      }
+      
+      #portrait .page {
+        width: 320px;
+        height: 150px;
+        position: absolute;
+        top: -50px;
+        left: 0;
+      }
+      
+      #portrait .asset {
+        width: 320px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      
+      #portrait .sprite {
+        background: url('images/pt-sprite1.png') no-repeat;
+        background-size: 320px 900px;
+        z-index: 8;
+      }
+      
+      #portrait .frame-01 {
+        background-position: 0px 0px;
+        -webkit-animation: "pt-copy-01" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-02 {
+        background-position: 0px -150px;
+        -webkit-animation: "pt-copy-02" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-03 {
+        background-position: 0px -300px;
+        -webkit-animation: "pt-copy-03" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-04 {
+        background-position: 0px -450px;
+        -webkit-animation: "pt-copy-04" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-05 {
+        background-position: 0px -600px;
+        -webkit-animation: "pt-copy-05" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .frame-06 {
+        background-position: 0px -750px;
+        -webkit-animation: "pt-copy-06" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .logo {
+        background: url('images/pt-logo.png') no-repeat;
+        background-size: 320px 50px;
+        z-index: 12;
+        -webkit-animation: "pt-logo" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .flare {
+        background: url('images/pt-flare.png') no-repeat;
+        background-size: 320px 50px;
+        -webkit-animation: "flare" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .indoors {
+        background: url('images/pt-indoors.png') no-repeat;
+        background-size: 320px 50px;
+        -webkit-animation: "pt-indoors" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .splat {
+        background: url('images/pt-splat.png') no-repeat;
+        background-size: 320px 200px;
+        z-index: 10;
+      }
+      
+      #portrait .splat-01 {
+        background-position: 0px -150px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .splat-02 {
+        background-position: 0px -100px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .splat-03 {
+        background-position: 0px -50px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #portrait .splat-04 {
+        background-position: 0px 0px;
+        -webkit-animation: "splat-bottom" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      @-webkit-keyframes "pt-logo" {
+  		  00.00%, 66.66% { 
+  		    left: 0px; 
+  		  }
+  		  70.00%, 93.33% { 
+  		    left: -128px; 
+  		  }
+  		  96.66%, 100.00% { 
+  		    left: 0px; 
+  		  }
+  		}
+  		
+  		@-webkit-keyframes "pt-indoors" {
+  		  00.00%, 66.66% { 
+  		    left: -250px; 
+  		  }
+  		  70.00%, 93.33% { 
+  		    left: 0px; 
+  		  }
+  		  96.66%, 100.00% { 
+  		    left: -250px; 
+  		  }
+		  }
+  		
+  		@-webkit-keyframes "pt-copy-01" {
+  		  00.00%, 10.00% { 
+  		    top: -150px; 
+  		  }
+  		  13.33%, 30.00% { 
+  		    top: -50px; 
+  		  }
+  		  33.33%, 100.0% { 
+  		    top: -150px;
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "pt-copy-02" {
+  		  00.00%, 13.33% { 
+  		    top: 150px; 
+  		  }
+  		  16.66%, 30.00% { 
+  		    top: -50px; 
+  		  }
+  		  33.33%, 100.0% { 
+  		    top: 150px;
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "pt-copy-03" {
+  		  00.00%, 38.33% { 
+  		    top: -150px; 
+  		  }
+  		  41.66%, 58.33% { 
+  		    top: -50px; 
+  		  }
+  		  61.66%, 100.0% { 
+  		    top: -150px;
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "pt-copy-04" {
+  		  00.00%, 41.66% { 
+  		    top: 150px; 
+  		  }
+  		  45.00%, 58.33% { 
+  		    top: -50px; 
+  		  }
+  		  61.66%, 100.0% { 
+  		    top: 150px; 
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "pt-copy-05" {
+  		  00.00%, 70.00% { 
+  		    top: -50px; 
+  		    left: -250px; 
+  		  }
+  		  73.33%, 93.33% { 
+  		    top: -50px; 
+  		    left: 0px; 
+  		  }
+  		  96.66%, 100.0% { 
+  		    top: -50px; 
+  		    left: -250px; 
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "pt-copy-06" {
+  		  00.00%, 70.00% { 
+  		    top: -50px; 
+  		    left: 250px;
+  		  }
+  		  73.33%, 93.33% { 
+  		    top: -50px; 
+  		    left: 0px;
+  		  }
+  		  96.66%, 100.0% { 
+  		    top: -50px; 
+  		    left: 250px;
+  		  }
+		  }
+      
+      /*********************** LANDSCAPE *********************/
+      #landscape {
+        width: 480px;
+        height: 32px;
+        background: url('images/ls-bg.jpg') no-repeat;
+        background-size: 480px 32px;
+      }
+      
+      #landscape .page {
+        width: 480px;
+        height: 150px;
+        position: absolute;
+        top: -59px;
+        left: 0;
+      }
+      
+      #landscape .asset {
+        width: 480px;
+        height: 32px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      
+      #landscape .sprite {
+        background: url('images/ls-sprite1.png') no-repeat;
+        background-size: 480px 900px;
+        z-index: 8;
+      }
+      
+      #landscape .frame-01 {
+        background-position: 0px 0px;
+        -webkit-animation: "ls-copy-01" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-02 {
+        background-position: 0px -150px;
+        -webkit-animation: "ls-copy-02" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-03 {
+        background-position: 0px -300px;
+        -webkit-animation: "ls-copy-03" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-04 {
+        background-position: 0px -450px;
+        -webkit-animation: "ls-copy-04" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-05 {
+        background-position: 0px -600px;
+        -webkit-animation: "ls-copy-05" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .frame-06 {
+        background-position: 0px -750px;
+        -webkit-animation: "ls-copy-06" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .logo {
+        background: url('images/ls-logo.png') no-repeat;
+        background-size: 480px 32px;
+        z-index: 12;
+        -webkit-animation: "ls-logo" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .flare {
+        background: url('images/ls-flare.png') no-repeat;
+        background-size: 480px 32px;
+        -webkit-animation: "flare" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .indoors {
+        background: url('images/ls-indoors.png') no-repeat;
+        background-size: 480px 32px;
+        -webkit-animation: "ls-indoors" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .splat {
+        background: url('images/ls-splat.png') no-repeat;
+        background-size: 480px 128px;
+        z-index: 10;
+      }
+      
+      #landscape .splat-01 {
+        background-position: 0px -96px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .splat-02 {
+        background-position: 0px -64px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .splat-03 {
+        background-position: 0px -32px;
+        -webkit-animation: "splat-top" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      #landscape .splat-04 {
+        background-position: 0px 0px;
+        -webkit-animation: "splat-bottom" 10s 0s infinite ease-in-out normal forwards;
+      }
+      
+      @-webkit-keyframes "ls-logo" {
+  		  00.00%, 66.66% { 
+  		    left: 0px; 
+  		  }
+  		  70.00%, 93.33% { 
+  		    left: -224px; 
+  		  }
+  		  96.66%, 100.00% { 
+  		    left: 0px; 
+  		  }
+  		}
+  		
+  		@-webkit-keyframes "ls-indoors" {
+  		  00.00%, 66.66% { 
+  		    left: -350px; 
+  		  }
+  		  70.00%, 93.33% { 
+  		    left: 0px; 
+  		  }
+  		  96.66%, 100.00% { 
+  		    left: -350px; 
+  		  }
+		  }
+      
+      @-webkit-keyframes "ls-copy-01" {
+  		  00.00%, 10.00% { 
+  		    top: -150px; 
+  		  }
+  		  13.33%, 30.00% { 
+  		    top: -59px; 
+  		  }
+  		  33.33%, 100.0% { 
+  		    top: -150px;
+  		  }
+		  }
+      
+      @-webkit-keyframes "ls-copy-02" {
+  		  00.00%, 13.33% { 
+  		    top: 150px; 
+  		  }
+  		  16.66%, 30.00% { 
+  		    top: -59px; 
+  		  }
+  		  33.33%, 100.0% { 
+  		    top: 150px;
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "ls-copy-03" {
+  		  00.00%, 38.33% { 
+  		    top: -150px; 
+  		  }
+  		  41.66%, 58.33% { 
+  		    top: -59px; 
+  		  }
+  		  61.66%, 100.0% { 
+  		    top: -150px;
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "ls-copy-04" {
+  		  00.00%, 41.66% { 
+  		    top: 150px; 
+  		  }
+  		  45.00%, 58.33% { 
+  		    top: -59px; 
+  		  }
+  		  61.66%, 100.0% { 
+  		    top: 150px; 
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "ls-copy-05" {
+  		  00.00%, 70.00% { 
+  		    top: -59px; 
+  		    left: -350px; 
+  		  }
+  		  73.33%, 93.33% { 
+  		    top: -59px; 
+  		    left: 0px; 
+  		  }
+  		  96.66%, 100.0% { 
+  		    top: -59px; 
+  		    left: -350px; 
+  		  }
+		  }
+		  
+		  @-webkit-keyframes "ls-copy-06" {
+  		  00.00%, 70.00% { 
+  		    top: -59px; 
+  		    left: 350px;
+  		  }
+  		  73.33%, 93.33% { 
+  		    top: -59px; 
+  		    left: 0px;
+  		  }
+  		  96.66%, 100.0% { 
+  		    top: -59px; 
+  		    left: 350px;
+  		  }
+		  }
+      
+      /*********************** SHARED ANIMATIONS *********************/
+      @-webkit-keyframes "splat-top" {
+        00.00%, 16.66% { top: -100px; }
+        20.00%, 30.00% { top: 0px; }
+        33.33%, 45.55% { top: -100px; }
+        48.33%, 58.33% { top: 0px; }
+        61.66%, 100% { top: -100px; }
+      }
+      
+  		@-webkit-keyframes "splat-bottom" {
+  			00.00%, 16.66% { top: 100px; }
+  			20.00%, 30.00% { top: 0px; }
+  			33.33%, 45.55% { top: 100px; }
+  			48.33%, 58.33% { top: 0px; }
+  			61.66%, 100.0% { top: 100px; }
+  		}
+  		
+  		@-webkit-keyframes "flare" {
+  		  00.00%, 68.00% { opacity: 0.001; }
+  		  73.33%, 93.00% { opacity: 0.999; }
+  		  96.66%, 100.0% { opacity: 0.001; }
+  		}
+  		
+      
+    </style>
+  </head>
+  <body>
+    <div id="portrait">
+      <div class="asset logo"></div>
+      <div class="asset flare"></div>
+      <div class="asset splat splat-01"></div>
+      <div class="asset splat splat-02"></div>
+      <div class="asset splat splat-03"></div>
+      <div class="asset splat splat-04"></div>
+      <div class="page sprite frame-01"></div>
+      <div class="page sprite frame-02"></div>
+      <div class="page sprite frame-03"></div>
+      <div class="page sprite frame-04"></div>
+      <div class="asset indoors"></div>
+      <div class="page sprite frame-05"></div>
+      <div class="page sprite frame-06"></div>
+    </div>
+    <div id="landscape">
+      <div class="asset logo"></div>
+      <div class="asset flare"></div>
+      <div class="asset splat splat-01"></div>
+      <div class="asset splat splat-02"></div>
+      <div class="asset splat splat-03"></div>
+      <div class="asset splat splat-04"></div>
+      <div class="page sprite frame-01"></div>
+      <div class="page sprite frame-02"></div>
+      <div class="page sprite frame-03"></div>
+      <div class="page sprite frame-04"></div>
+      <div class="asset indoors"></div>
+      <div class="page sprite frame-05"></div>
+      <div class="page sprite frame-06"></div>
+    </div>
+  </body>
+</html>

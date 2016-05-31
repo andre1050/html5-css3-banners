@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+      /* shared ------------------------------------------------------------------------ */
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top: 0px;
+        left: 0px;
+        background: #666;
+        font: 16px/18px "Helvetica";
+        text-align: center;
+      }
+
+      body div{
+        position: absolute;
+        background-size: 100% 100%;
+      }
+
+      #portrait,
+      #landscape,
+      #landscape-4-inch-display {
+        position: relative;
+        background: black;
+        overflow: hidden;
+      }
+      
+      @media screen and (min-width: 0px) and (max-width: 320px) {
+        #portrait                 { display: block; }
+        #landscape                { display: none; }
+        #landscape-4-inch-display { display: none; }
+      }
+      @media screen and (min-width: 321px) and (max-width: 480px) {
+        #portrait                 { display: none; }
+        #landscape                { display: block; }
+        #landscape-4-inch-display { display: none; }
+      }
+      @media screen and (min-width: 481px) and (max-width: 568px) {
+        #portrait                 { display: none; }
+        #landscape-4-inch-display { display: block; }
+        #landscape                { display: none; }
+      }
+
+      .car-hood {
+        background-image: url("img/car-hood.jpg");
+        width: 950px;
+        height: 176px;
+        background-size: 950px 176px;
+      }
+
+      .overlay {
+        background-image: url("img/overlay.png");
+        width: 252px;
+        height: 38px;
+        background-size: 252px 38px;
+        /*512 76*/
+      }
+
+      /* portrait ---------------------------------------------------------------------- */
+      #portrait  { 
+        width: 320px; 
+        height: 50px; 
+      }
+
+      #portrait .car-hood {
+        left: -315px;
+        top: -63px;
+        -webkit-transform: scale(1.0) translateY(50px);
+      }
+
+      #portrait .overlay {
+        top: 5px;
+        left: 35px;
+      }
+
+      #portrait .white-bg {
+        background-image: url("img/white-bg.jpg");
+        width: 320px;
+        height: 50px;
+        background-size: 320px 50px;
+      }
+
+      #portrait .copy {
+        background-image: url("img/portrait-copy.png");
+        width: 320px;
+        height: 50px;
+        background-size: 320px 150px;
+        opacity: 0.0001;
+      }
+
+      #portrait .line-1 { background-position: 0px 0px; }
+      #portrait .line-2 { background-position: 0px -50px; }
+      #portrait .line-3 { background-position: 0px -100px; }
+
+
+    /* landscape and landscape-4-inch-display 
+    ---------------------------------------------------------------------- */
+
+      #landscape .overlay,
+      #landscape-4-inch-display .overlay {
+        top: -3px;
+        -webkit-transform: scale(0.66);
+      }
+
+      #landscape .white-bg,
+      #landscape-4-inch-display .white-bg {
+        background-image: url("img/landscape-white-bg.jpg");
+        background-size: 568px 32px;
+        height: 32px;
+        width: 568px;
+      }
+
+      #landscape .copy,
+      #landscape-4-inch-display .copy {
+        background-image: url("img/landscape-copy.png");
+        width: 568px;
+        height: 32px;
+        background-size: 568px 64px;
+        opacity: 0.0001;
+      }
+
+      #landscape .line-1,
+      #landscape-4-inch-display .line-1 { background-position: 0px 0px; }
+      #landscape .line-2,
+      #landscape-4-inch-display .line-2 { background-position: 0px -32px; }
+
+      /* landscape 
+      --------------------------------------------------------------------- */
+      #landscape { 
+        width: 480px; 
+        height: 32px; 
+      }
+
+      #landscape .car-hood {
+        left: -238px;
+        top: -71px;
+      }
+
+      #landscape .overlay {
+        left: 111px;
+      }
+
+      #landscape .white-bg {
+        left: -44px;
+      }
+
+      #landscape .copy {
+        left: -44px;
+      }
+
+
+      /* landscape-4-inch-display 
+      ---------------------------------------------------------------------*/
+      #landscape-4-inch-display { 
+        width: 568px; 
+        height: 32px; 
+      }
+
+      #landscape-4-inch-display .car-hood {
+        left: -200px;
+        top: -71px;
+      }
+
+      #landscape-4-inch-display .overlay {
+        left: 149px;
+      }
+
+
+
+      /* ANIMATION CONTROL 
+      -----------------------------------------------------------------------*/
+      #portrait .frame-1 { 
+        -webkit-animation: "scale-car-portrait" 10s linear 0s forwards infinite;
+      }
+      #landscape .frame-1,
+      #landscape-4-inch-display .frame-1 { 
+        -webkit-animation: "scale-car-landscape" 10s linear 0s forwards infinite; 
+      }
+      .frame-2 { 
+        -webkit-animation: "show" 10s linear 0s forwards infinite; 
+      }
+      .frame-3 { 
+        -webkit-animation: "show-white-bg" 10s ease-in 0s forwards infinite; 
+      }
+      .frame-4 { 
+        -webkit-animation: "line-1-fadeinout" 10s ease-in 0s forwards infinite; 
+      }
+      #portrait .frame-5 { 
+        -webkit-animation: "line-2-fadeinout" 10s ease-in 0s forwards infinite; 
+      }
+      #landscape .frame-5,
+      #landscape-4-inch-display .frame-5 { 
+        -webkit-animation: "line-2-fadein" 10s ease-in 0s forwards infinite; 
+      }
+      .frame-6 { 
+        -webkit-animation: "line-3-fadeinout" 10s ease-in 0s forwards infinite; 
+      }
+
+
+      @-webkit-keyframes scale-car-portrait {
+        0%, 5%  { -webkit-transform: scale(1.0) translateY(50px); }
+        10% { -webkit-transform: scale(0.3) translateY(0px); }
+        100% { -webkit-transform: scale(0.3) translateY(0px); }
+      }
+
+      @-webkit-keyframes scale-car-landscape {
+        0%, 5%  { -webkit-transform: scale(1.0) translateY(43px); }
+        10% { -webkit-transform: scale(0.2) translateY(0px); }
+        100% { -webkit-transform: scale(0.2) translateY(0px); }
+      }
+
+      @-webkit-keyframes show {
+        0%, 11%  { opacity: 0.0001; }
+        12% { opacity: 0.99; }
+        100% { opacity: 0.99; }
+      }
+
+      @-webkit-keyframes show-white-bg {
+        0%, 25%  { opacity: 0.0001; }
+        30% { opacity: 0.99; }
+        100% { opacity: 0.99; }
+      }
+
+      @-webkit-keyframes line-1-fadeinout {
+        0%, 30%  { opacity: 0.0001; }
+        35%, 45% { opacity: 0.99; }
+        50%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes line-2-fadeinout {
+        0%, 50%  { opacity: 0.0001; }
+        55%, 65% { opacity: 0.99; }
+        70%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes line-2-fadein {
+        0%, 50%  { opacity: 0.0001; }
+        55%, 85% { opacity: 0.99; }
+        90%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes line-3-fadeinout {
+        0%, 70%  { opacity: 0.0001; }
+        75%, 85% { opacity: 0.99; }
+        90%, 100% { opacity: 0.0001; }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="portrait">
+      <div class="car-hood frame-1"></div>
+      <div class="overlay frame-2"></div>
+      <div class="white-bg frame-3"></div>
+      <div class="copy line-1 frame-4"></div>  
+      <div class="copy line-2 frame-5"></div>  
+      <div class="copy line-3 frame-6"></div>  
+    </div>
+
+    <div id="landscape">
+      <div class="car-hood frame-1"></div>
+      <div class="overlay frame-2"></div>
+      <div class="white-bg frame-3"></div>
+      <div class="copy line-1 frame-4"></div>  
+      <div class="copy line-2 frame-5"></div> 
+    </div>
+
+    <div id="landscape-4-inch-display">
+      <div class="car-hood frame-1"></div>
+      <div class="overlay frame-2"></div>
+      <div class="white-bg frame-3"></div>
+      <div class="copy line-1 frame-4"></div>  
+      <div class="copy line-2 frame-5"></div> 
+    </div>
+  </body>
+</html>

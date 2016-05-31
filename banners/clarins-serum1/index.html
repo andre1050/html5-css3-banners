@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- ABSTRACT: The HTML for the ad banner. -->
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+      /* shared ------------------------------------------------------------------------ */
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top:0px;
+        left: 0px;
+        background: #000;
+        font: 16px/18px "Helvetica";
+        text-align:center;
+      }
+
+      body div {
+        position: absolute;
+        background-size: 100% 100%;
+      }
+
+      #portrait,
+      #landscape,
+      #landscape-iphone-5 {
+        position: relative;
+        background: #FFF;
+        overflow: hidden;
+      }
+
+      /* Screen Rotation
+      ------------------------------------------------------------------------------*/
+      @media screen and (min-width: 0px) and (max-width: 320px) {
+        #portrait           { display: block; }
+        #landscape          { display: none; }
+        #landscape-iphone-5 { display:none; }
+      }
+      @media screen and (min-width: 321px) and (max-width: 480px) {
+        #portrait           { display: none; }
+        #landscape          { display: block; }
+        #landscape-iphone-5 { display:none; }
+      }
+      @media screen and (min-width: 481px) and (max-width: 568px) {
+        #portrait           { display: none; }
+        #landscape-iphone-5 { display:block; }
+        #landscape          { display: none; }
+      }
+
+      /* -------------------------------------------------------------- 
+      * PORTRAIT
+      * ------------------------------------------------------------ */
+      #portrait {
+        background-image: url('img/pt/bg.jpg');
+        width: 320px;
+        height: 50px;
+      }
+
+      #portrait .frame {
+        width: 320px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      #portrait .bubbles-left {
+        background: url(img/pt/bubbles-left.png) no-repeat;
+        background-size: 160px 150px;
+        -webkit-animation: bubbles_left_pt 15s ease 0s alternate infinite;
+      }
+
+      #portrait .bubbles-right {
+        background: url(img/pt/bubbles-right.png) no-repeat;
+        background-size: 160px 150px;
+        -webkit-animation: bubbles_right_pt 18s ease 0s forwards infinite;
+      }
+
+      #portrait .logo {
+        width: 85px;
+        height: 13px;
+        background: url(img/pt/logo.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 3px;
+        -webkit-animation: logo_slide 1s ease 0s forwards 1;
+      }
+      
+      #portrait .product {
+        width: 27px;
+        height: 75px;
+        left: 146px;
+        z-index: 1000;
+        background: url(img/pt/product.png) no-repeat;
+        background-size: 100% 100%;
+        -webkit-animation: product_slide_pt 10s ease 0s forwards infinite;
+      }
+
+      #portrait .copy {
+        background: url(img/pt/copy.png) no-repeat;
+        background-size: 320px 300px;
+      }
+      
+      #portrait .frame1-left { background-position: 0 -100px; -webkit-animation: "frame1-left" 10s ease 0s forwards infinite; }
+      #portrait .frame1-right { background-position: 0 -150px; -webkit-animation: "frame1-right" 10s ease 0s forwards infinite; }
+      #portrait .frame2-left { background-position: 0 0; -webkit-animation: "frame2-left" 10s ease 0s forwards infinite; }
+      #portrait .frame2-right { background-position: 0 -50px; -webkit-animation: "frame2-right" 10s ease 0s forwards infinite; }
+      #portrait .frame3-left { background-position: 0 -200px; -webkit-animation: "frame3-left" 10s ease 0s forwards infinite; }
+      #portrait .frame3-right { background-position: 0 -250px; -webkit-animation: "frame3-right" 10s ease 0s forwards infinite; }
+
+      @-webkit-keyframes bubbles_left_pt {
+        0% { background-position: 0 -67px; }
+        25% { background-position: 0 -37px; }
+        50% { background-position: 0 -97px; }
+        75% { background-position: 0 -37px; }
+        100% { background-position: 0 -67px; }
+      }
+
+      @-webkit-keyframes bubbles_right_pt {
+        0% { background-position: 160px -67px; }
+        25% { background-position: 160px -37px; }
+        50% { background-position: 160px -97px; }
+        75% { background-position: 160px -37px; }
+        100% { background-position: 160px -67px; }
+      }
+
+      @-webkit-keyframes logo_slide {
+        from { left: -85px; }
+        to { left: 0px; }
+      }
+
+      @-webkit-keyframes product_slide_pt {
+        0%, 41% { top: 50px; display: none; }
+        46% { top: 0px; display: block; }
+        92% { top: 0px; display: block; }
+        96% { top: -80px; display: block; }
+        100% { top: -80px; display: none; }
+      }
+      
+      /* --------------------------------------------------------------- 
+      * LANDSCAPE
+      * ------------------------------------------------------------- */
+      #landscape,
+      #landscape-iphone-5 {
+        background-image: url('img/ls/bg.jpg');
+        height: 32px;
+      }
+      #landscape, #landscape .frame { width: 480px; }
+      #landscape-iphone-5, #landscape-iphone-5 .frame { width: 568px; }
+
+
+      #landscape .frame,
+      #landscape-iphone-5 .frame {
+        height: 32px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+
+      #landscape .logo,
+      #landscape-iphone-5 .logo {
+        background: url(img/pt/logo.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 3px;
+        -webkit-animation: logo_slide 1s ease 0s forwards 1;
+      }
+      #landscape .logo { width: 105px; height: 15px; }
+      #landscape-iphone-5 .logo { width: 132px; height: 19px; }
+      
+      
+      #landscape .bubbles-left,
+      #landscape-iphone-5 .bubbles-left {
+        background: url(img/ls/bubbles-left.png) no-repeat;
+        background-size: 284px 100px;
+        -webkit-animation: bubbles_left_ls 15s ease 0s alternate infinite;
+      }
+      #landscape .bubbles-left { left: -44px; }
+      #landscape-iphone-5 .bubbles-left { left: 0px; }
+
+
+      #landscape .bubbles-right,
+      #landscape-iphone-5 .bubbles-right {
+        background: url(img/ls/bubbles-right.png) no-repeat;
+        background-size: 284px 100px;
+        -webkit-animation: bubbles_right_ls 18s ease 0s forwards infinite;
+      }
+      #landscape .bubbles-right { left: -44px; }
+      #landscape-iphone-5 .bubbles-right { left: 0px; }
+
+
+      #landscape .product,
+      #landscape-iphone-5 .product {
+        width: 22px;
+        height: 67px;
+        z-index: 1000;
+        background: url(img/ls/product.png) no-repeat;
+        background-size: 100% 100%;
+        -webkit-animation: product_slide_ls 10s ease 0s forwards infinite;
+      }
+      #landscape .product { left: 225px; }
+      #landscape-iphone-5 .product { left: 269px; }
+
+
+      #landscape .copy,
+      #landscape-iphone-5 .copy {
+        background: url(img/ls/copy.png) no-repeat;
+        background-size: 568px 192px;
+      }
+      
+      #landscape .frame1-left { background-position: -44px -64px; -webkit-animation: "frame1-left" 10s ease 0s forwards infinite; }
+      #landscape .frame1-right { background-position: -44px -96px; -webkit-animation: "frame1-right" 10s ease 0s forwards infinite; }
+      #landscape .frame2-left { background-position: -44px 0; -webkit-animation: "frame2-left" 10s ease 0s forwards infinite; }
+      #landscape .frame2-right { background-position: -44px -32px; -webkit-animation: "frame2-right" 10s ease 0s forwards infinite; }
+      #landscape .frame3-left { background-position: -44px -128px; -webkit-animation: "frame3-left" 10s ease 0s forwards infinite; }
+      #landscape .frame3-right { background-position: -44px -160px; -webkit-animation: "frame3-right" 10s ease 0s forwards infinite; }
+      
+      #landscape-iphone-5 .frame1-left { background-position: 0 -64px; -webkit-animation: "frame1-left" 10s ease 0s forwards infinite; }
+      #landscape-iphone-5 .frame1-right { background-position: 0 -96px; -webkit-animation: "frame1-right" 10s ease 0s forwards infinite; }
+      #landscape-iphone-5 .frame2-left { background-position: 0 0; -webkit-animation: "frame2-left" 10s ease 0s forwards infinite; }
+      #landscape-iphone-5 .frame2-right { background-position: 0 -32px; -webkit-animation: "frame2-right" 10s ease 0s forwards infinite; }
+      #landscape-iphone-5 .frame3-left { background-position: 0 -128px; -webkit-animation: "frame3-left" 10s ease 0s forwards infinite; }
+      #landscape-iphone-5 .frame3-right { background-position: 0 -160px; -webkit-animation: "frame3-right" 10s ease 0s forwards infinite; }
+      
+      @-webkit-keyframes bubbles_left_ls {
+          0% { background-position: 0 -67px; }
+          25% { background-position: 0 -37px; }
+          50% { background-position: 0 -67px; }
+          75% { background-position: 0 -37px; }
+          100% { background-position: 0 -67px; }
+      }
+
+      @-webkit-keyframes bubbles_right_ls {
+          0% { background-position: 284px -67px; }
+          25% { background-position: 284px -37px; }
+          50% { background-position: 284px -67px; }
+          75% { background-position: 284px -37px; }
+          100% { background-position: 284px -67px; }
+      }
+
+      @-webkit-keyframes logo_slide {
+        from { left: -132px; }
+        to { left: 0px; }
+      }
+
+      @-webkit-keyframes product_slide_ls {
+        0%, 41% { top: 32px; display: none; }
+        46% { top: -17px; display: block; }
+        92% { top: -17px; display: block; }
+        96% { top: -70px; display: block; }
+        100% { top: -70px; display: none; }
+      }
+
+      /* -------------------------------------------------------------- 
+      * ANIMATION CONTROLS
+      * ------------------------------------------------------------ */
+      @-webkit-keyframes frame1-left {
+        0%, 3% { opacity: 0.0001; }
+        9%, 33% { opacity: 0.999; }
+        37%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes frame1-right {
+        0%, 6% { opacity: 0.0001; left: -20px; }
+        12%, 33% { opacity: 0.999; left: 0px; }
+        37%, 44% { opacity: 0.0001; left: 0px; }
+        45%, 100% { opacity: 0.0001; left: -20px; }
+      }
+      
+      @-webkit-keyframes frame2-left {
+        0%, 37% { opacity: 0.0001; }
+        43%, 60% { opacity: 0.999; }
+        64%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes frame2-right {
+        0%, 45% { opacity: 0.0001; left: -20px; }
+        50%, 60% { opacity: 0.999; left: 0px; }
+        64%, 68% { opacity: 0.0001; left: 0px; }
+        69%, 100% { opacity: 0.0001; left: -20px; }
+      }
+
+      @-webkit-keyframes frame3-left {
+        0%, 64% { opacity: 0.0001; }
+        70%, 96% { opacity: 0.999; }
+        99%, 100% { opacity: 0.0001; }
+      }
+
+      @-webkit-keyframes frame3-right {
+        0%, 68% { opacity: 0.0001; left: -20px; }
+        72%, 96% { opacity: 0.999; left: 0px; }
+        99.5%, 99.9% { opacity: 0.0001; left: 0px; }
+        99.9%, 100% { opacity: 0.0001; left: -20px; }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="portrait">
+      <div class="frame bubbles-left"></div>
+      <div class="frame bubbles-right"></div>
+      <div class="logo"></div>
+      <div class="product"></div>
+      <div class="frame copy frame1-left"></div>
+      <div class="frame copy frame1-right"></div>
+      <div class="frame copy frame2-left"></div>
+      <div class="frame copy frame2-right"></div>
+      <div class="frame copy frame3-left"></div>
+      <div class="frame copy frame3-right"></div>
+    </div>
+    
+    <div id="landscape">
+      <div class="frame bubbles-left"></div>
+      <div class="frame bubbles-right"></div>
+      <div class="logo"></div>
+      <div class="product"></div>
+      <div class="frame copy frame1-left"></div>
+      <div class="frame copy frame1-right"></div>
+      <div class="frame copy frame2-left"></div>
+      <div class="frame copy frame2-right"></div>
+      <div class="frame copy frame3-left"></div>
+      <div class="frame copy frame3-right"></div>
+    </div>
+
+    <div id="landscape-iphone-5">
+      <div class="frame bubbles-left"></div>
+      <div class="frame bubbles-right"></div>
+      <div class="logo"></div>
+      <div class="product"></div>
+      <div class="frame copy frame1-left"></div>
+      <div class="frame copy frame1-right"></div>
+      <div class="frame copy frame2-left"></div>
+      <div class="frame copy frame2-right"></div>
+      <div class="frame copy frame3-left"></div>
+      <div class="frame copy frame3-right"></div>
+    </div>
+
+  </body>
+</html>

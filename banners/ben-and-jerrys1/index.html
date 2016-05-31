@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+
+      /***************** SHARED *****************/
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background: #000;
+      }
+			
+      body div, body img {
+        position: absolute;
+      }
+			
+      #portrait,
+      #landscape {
+        position: relative;
+        background: white;
+        overflow: hidden;
+      }
+			
+      @media screen and (min-width: 0px) and (max-width:320px){
+        #portrait { display: block; }
+        #landscape { display: none; }
+      }
+			
+      @media screen and (min-width: 321px) and (max-width:480px) {
+        #landscape { display: block; }
+        #portrait { display: none; }
+      }
+			
+      /***************** PORTRAIT *****************/
+      #portrait {
+        width: 320px;
+        height: 50px;
+				background-image: url(img/portrait-background.jpg);
+				background-size: 320px 50px;
+      }
+			
+			#portrait .woody {
+				width: 50px;
+				height: 50px;
+				right: 0;
+				-webkit-transform: rotate(0deg);
+				-webkit-animation: "woody-surprised" 3.333s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .intro {
+				background-position: left -200px;
+				opacity: 0.0001;
+				-webkit-animation: "intro-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .tub1 {
+				z-index: 101;
+				background-position: left 0px;
+				-webkit-animation: "tub1-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .tub2 {
+				z-index: 101;
+				background-position: left -50px;
+				-webkit-animation: "tub2-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .tub3 {
+				z-index: 103;
+				background-position: left -100px;
+				-webkit-animation: "tub3-dropping" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .tub3front {
+				z-index: 102;
+				background-position: left -150px;
+				-webkit-animation: "tub3-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .tub {
+				opacity: 0.9999;
+				-webkit-transform: translateY(-50px);
+			}
+			
+			#portrait .copy1 {
+				background-position: left -150px;
+				-webkit-animation: "copy1-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .copy2 {
+				background-position: left -100px;
+				-webkit-animation: "copy2-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .copy3 {
+				background-position: left -50px;
+				-webkit-animation: "copy3-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .copy4 {
+				background-position: left 0px;
+				-webkit-animation: "copy4-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#portrait .copy {
+				opacity: 0.0001;
+			}
+			
+      /***************** LANDSCAPE *****************/
+      #landscape {
+        width: 480px;
+        height: 32px;
+				background-image: url(img/landscape-background.jpg);
+				background-size: 480px 32px;
+      }
+
+			#landscape .woody {
+				width: 58px;
+				height: 32px;
+				right: 0;
+				-webkit-transform: rotate(0deg);
+				-webkit-animation: "woody-surprised" 3.333s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .intro {
+				background-position: left -126px;
+				opacity: 0.0001;
+				-webkit-animation: "intro-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .tub1 {
+				z-index: 101;
+				background-position: left 0px;
+				-webkit-animation: "tub1-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .tub2 {
+				z-index: 101;
+				background-position: left -32px;
+				-webkit-animation: "tub2-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .tub3 {
+				z-index: 103;
+				background-position: left -64px;
+				-webkit-animation: "tub3-dropping" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .tub3front {
+				z-index: 102;
+				background-position: left -96px;
+				-webkit-animation: "tub3-falling" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .tub {
+				opacity: 0.0001;
+				-webkit-transform: translateY(-50px);
+			}
+			
+			#landscape .copy1 {
+				background-position: left -96px;
+				-webkit-animation: "copy1-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .copy2 {
+				background-position: left -64px;
+				-webkit-animation: "copy2-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .copy3 {
+				background-position: left -32px;
+				-webkit-animation: "copy3-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .copy4 {
+				background-position: left 0px;
+				-webkit-animation: "copy4-fading" 10s 0s linear infinite normal forwards;
+			}
+			
+			#landscape .copy {
+				opacity: 0.0001;
+			}
+			
+			/***************** SPRITES *****************/
+			#portrait .sprite-copy {
+				background-image: url(img/portrait-sprite-copy.png);
+				background-repeat: no-repeat;
+				background-size: 320px 250px;
+			}
+			
+			#portrait .sprite-tubs {
+				background-image: url(img/portrait-sprite-tubs.png);
+				background-repeat: no-repeat;
+				background-size: 320px 200px;
+			}
+			
+			#portrait .full-size {
+				width: 320px;
+				height: 50px;
+				left: 0;
+				top: 0;
+			}
+			
+			#landscape .sprite-copy {
+				background-image: url(img/landscape-sprite-copy.png);
+				background-repeat: no-repeat;
+				background-size: 480px 160px;
+			}
+			
+			#landscape .sprite-tubs {
+				background-image: url(img/landscape-sprite-tubs.png);
+				background-repeat: no-repeat;
+				background-size: 480px 128px;
+			}
+			
+			#landscape .full-size {
+				width: 480px;
+				height: 32px;
+				left: 0;
+				top: 0;
+			}
+			
+			/***************** ANIMATIONS *****************/
+			@-webkit-keyframes woody-surprised {       
+  			30% {
+	 						-webkit-transform: rotate(0deg); 
+				}
+				35% { 
+							-webkit-transform: rotate(25deg); 
+				}
+				65% { 
+							-webkit-transform: rotate(25deg); 
+				}
+				70% { 
+							-webkit-transform: rotate(0deg); 
+				}
+  		}
+			
+			@-webkit-keyframes intro-fading {
+				5% { 
+							opacity: 0.0001;
+				}
+				10% { 
+							opacity: 0.9999;
+				}
+				20% { 
+							opacity: 0.9999;
+				}
+				25% { 
+							opacity: 0.0001;
+				}
+			}
+			
+			@-webkit-keyframes tub1-falling {
+				30% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+				32% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				62% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				64% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(0px);
+				}
+				65% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(-50px);
+				}
+				66% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+			}
+			
+			@-webkit-keyframes tub2-falling {
+				32% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+				34% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				64% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				66% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(0px);
+				}
+				67% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(-50px);
+				}
+				68% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+			}
+			
+			@-webkit-keyframes tub3-falling {
+				34% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+				36% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				66% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				68% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(0px);
+				}
+				69% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(-50px);
+				}
+				70% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+			}
+
+			@-webkit-keyframes tub3-dropping {
+				34% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(-50px);
+				}
+				36% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				46% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(0px);
+				}
+				48% { 
+							opacity: 0.9999;
+							-webkit-transform: translateY(50px);
+				}
+				49% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(50px);
+				}
+				50% { 
+							opacity: 0.0001;
+							-webkit-transform: translateY(-50px);
+				}
+			}
+			
+			@-webkit-keyframes copy1-fading {
+				68% { 
+							opacity: 0.0001;
+				}
+				70% { 
+							opacity: 0.9999;
+				}
+				97% { 
+							opacity: 0.9999;
+				}
+				99% { 
+							opacity: 0.0001;
+				}
+			}
+			
+			@-webkit-keyframes copy2-fading {
+				0% {
+							opacity: 0.0001;
+							left: -480px;
+				}
+				70% { 
+							opacity: 0.9999;
+							left: -480px;
+				}
+				75% { 
+							opacity: 0.9999;
+							left: 0px;
+				}
+				97% { 
+							opacity: 0.9999;
+							left: 0px;
+				}
+				99% { 
+							opacity: 0.0001;
+							left: 0px;
+				}
+				100% { 
+							opacity: 0.0001;
+							left: -480px;
+				}
+			}
+			
+			@-webkit-keyframes copy3-fading {
+				75% { 
+							opacity: 0.0001;
+				}
+				76% { 
+							opacity: 0.9999;
+				}
+				97% { 
+							opacity: 0.9999;
+				}
+				99% { 
+							opacity: 0.0001;
+				}
+			}
+			
+			@-webkit-keyframes copy4-fading {
+				0% {
+							opacity: 0.0001;
+							top: -50px;
+				}
+				76% { 
+							opacity: 0.9999;
+							top: -50px;
+				}
+				78% { 
+							opacity: 0.9999;
+							top: 0px;
+				}
+				97% { 
+							opacity: 0.9999;
+							top: 0px;
+				}
+				99% { 
+							opacity: 0.0001;
+							top: 0px;
+				}
+			}
+			
+    </style>
+  </head>
+  <body>
+    <div id="portrait">
+      
+			<img class="woody" src="img/portrait-woody.png">
+			
+			<div class="sprite-copy intro full-size"></div>
+			
+			<div class="sprite-tubs tub tub1 full-size"></div>
+			<div class="sprite-tubs tub tub2 full-size"></div>
+			<div class="sprite-tubs tub tub3 full-size"></div>
+			<div class="sprite-tubs tub tub3front full-size"></div>
+			
+			<div class="sprite-copy copy copy1 full-size"></div>
+			<div class="sprite-copy copy copy2 full-size"></div>
+			<div class="sprite-copy copy copy3 full-size"></div>
+			<div class="sprite-copy copy copy4 full-size"></div>
+			
+    </div>
+    <div id="landscape">
+			
+			<img class="woody" src="img/landscape-woody.png">
+			
+			<div class="sprite-copy intro full-size"></div>
+			
+			<div class="sprite-tubs tub tub1 full-size"></div>
+			<div class="sprite-tubs tub tub2 full-size"></div>
+			<div class="sprite-tubs tub tub3 full-size"></div>
+			<div class="sprite-tubs tub tub3front full-size"></div>
+			
+			<div class="sprite-copy copy copy1 full-size"></div>
+			<div class="sprite-copy copy copy2 full-size"></div>
+			<div class="sprite-copy copy copy3 full-size"></div>
+			<div class="sprite-copy copy copy4 full-size"></div>
+			
+    </div>
+  </body>
+</html>
